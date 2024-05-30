@@ -11,7 +11,7 @@ from ema_workbench.util import ema_logging
 
 from problem_formulation import get_model_for_problem_formulation
 import matplotlib.pyplot as plt
-import seaborn as sns
+import seaborn as sn
 
 
 if __name__ == "__main__":
