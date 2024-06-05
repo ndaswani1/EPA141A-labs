@@ -11,7 +11,7 @@ from problem_formulation import get_model_for_problem_formulation
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    dike_model, planning_steps = get_model_for_problem_formulation(1)
+    dike_model, planning_steps = get_model_for_problem_formulation(2)
 
     # Build a user-defined scenario and policy:
     reference_values = {
@@ -67,4 +67,4 @@ if __name__ == "__main__":
         experiments, outcomes = evaluator.perform_experiments(scenarios=100, policies=5)
 
     # save results
-    save_results((experiments, outcomes), './results/openexplor_problem1.tar.gz')
+    save_results((experiments, outcomes), './results/openexplor_problem2.tar.gz')
