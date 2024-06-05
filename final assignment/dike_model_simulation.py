@@ -67,4 +67,4 @@ if __name__ == "__main__":
         experiments, outcomes = evaluator.perform_experiments(scenarios=100, policies=5)
 
     # save results
-    save_results((experiments, outcomes), './data/preliminary_results_pr1.tar.gz')
+    save_results((experiments, outcomes), './results/openexplor_problem1.tar.gz')
