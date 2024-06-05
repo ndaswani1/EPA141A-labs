@@ -3,6 +3,7 @@ from ema_workbench import Model, MultiprocessingEvaluator, Policy, Scenario
 from ema_workbench.em_framework.evaluators import perform_experiments
 from ema_workbench.em_framework.samplers import sample_uncertainties
 from ema_workbench.util import ema_logging
+from ema_workbench import save_results
 import time
 from problem_formulation import get_model_for_problem_formulation
 
@@ -10,7 +11,7 @@ from problem_formulation import get_model_for_problem_formulation
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    dike_model, planning_steps = get_model_for_problem_formulation(5)
+    dike_model, planning_steps = get_model_for_problem_formulation(1)
 
     # Build a user-defined scenario and policy:
     reference_values = {
@@ -59,9 +60,11 @@ if __name__ == "__main__":
     #    results = dike_model.outcomes_output
 
     # series run
-    experiments, outcomes = perform_experiments(dike_model, ref_scenario, 5)
+    # experiments, outcomes = perform_experiments(dike_model, ref_scenario, 5)
 
 # multiprocessing
-#    with MultiprocessingEvaluator(dike_model) as evaluator:
-#        results = evaluator.perform_experiments(scenarios=10, policies=policy0,
-#                                                uncertainty_sampling='sobol')
+    with MultiprocessingEvaluator(dike_model) as evaluator:
+        experiments, outcomes = evaluator.perform_experiments(scenarios=100, policies=5)
+
+    # save results
+    save_results((experiments, outcomes), './data/preliminary_results_pr1.tar.gz')
