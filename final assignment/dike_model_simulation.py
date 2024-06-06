@@ -13,39 +13,39 @@ if __name__ == "__main__":
 
     dike_model, planning_steps = get_model_for_problem_formulation(2)
 
-    # Build a user-defined scenario and policy:
-    reference_values = {
-        "Bmax": 175,
-        "Brate": 1.5,
-        "pfail": 0.5,
-        "ID flood wave shape": 4,
-        "planning steps": 2,
-    }
-    reference_values.update({f"discount rate {n}": 3.5 for n in planning_steps})
-    scen1 = {}
-
-    for key in dike_model.uncertainties:
-        name_split = key.name.split("_")
-
-        if len(name_split) == 1:
-            scen1.update({key.name: reference_values[key.name]})
-
-        else:
-            scen1.update({key.name: reference_values[name_split[1]]})
-
-    ref_scenario = Scenario("reference", **scen1)
-
-    # no dike increase, no warning, none of the rfr
-    zero_policy = {"DaysToThreat": 0}
-    zero_policy.update({f"DikeIncrease {n}": 0 for n in planning_steps})
-    zero_policy.update({f"RfR {n}": 0 for n in planning_steps})
-    pol0 = {}
-
-    for key in dike_model.levers:
-        s1, s2 = key.name.split("_")
-        pol0.update({key.name: zero_policy[s2]})
-
-    policy0 = Policy("Policy 0", **pol0)
+    # # Build a user-defined scenario and policy:
+    # reference_values = {
+    #     "Bmax": 175,
+    #     "Brate": 1.5,
+    #     "pfail": 0.5,
+    #     "ID flood wave shape": 4,
+    #     "planning steps": 2,
+    # }
+    # reference_values.update({f"discount rate {n}": 3.5 for n in planning_steps})
+    # scen1 = {}
+    #
+    # for key in dike_model.uncertainties:
+    #     name_split = key.name.split("_")
+    #
+    #     if len(name_split) == 1:
+    #         scen1.update({key.name: reference_values[key.name]})
+    #
+    #     else:
+    #         scen1.update({key.name: reference_values[name_split[1]]})
+    #
+    # ref_scenario = Scenario("reference", **scen1)
+    #
+    # # no dike increase, no warning, none of the rfr
+    # zero_policy = {"DaysToThreat": 0}
+    # zero_policy.update({f"DikeIncrease {n}": 0 for n in planning_steps})
+    # zero_policy.update({f"RfR {n}": 0 for n in planning_steps})
+    # pol0 = {}
+    #
+    # for key in dike_model.levers:
+    #     s1, s2 = key.name.split("_")
+    #     pol0.update({key.name: zero_policy[s2]})
+    #
+    # policy0 = Policy("Policy 0", **pol0)
 
     # Call random scenarios or policies:
     #    n_scenarios = 5
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
 # multiprocessing
     with MultiprocessingEvaluator(dike_model) as evaluator:
-        experiments, outcomes = evaluator.perform_experiments(scenarios=100, policies=5)
+        experiments, outcomes = evaluator.perform_experiments(scenarios=1000, policies=5)
 
     # save results
-    save_results((experiments, outcomes), './results/openexplor_problem2.tar.gz')
+    save_results((experiments, outcomes), './results/prim_problem2.tar.gz')
