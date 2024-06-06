@@ -22,6 +22,7 @@ if __name__ == "__main__":
     #     "planning steps": 2,
     # }
     # reference_values.update({f"discount rate {n}": 3.5 for n in planning_steps})
+    #
     # scen1 = {}
     #
     # for key in dike_model.uncertainties:
@@ -64,7 +65,7 @@ if __name__ == "__main__":
 
 # multiprocessing
     with MultiprocessingEvaluator(dike_model) as evaluator:
-        experiments, outcomes = evaluator.perform_experiments(scenarios=1000, policies=5)
+        experiments, outcomes = evaluator.perform_experiments(scenarios=5000, policies=1)
 
     # save results
-    save_results((experiments, outcomes), './results/prim_problem2.tar.gz')
+    save_results((experiments, outcomes), './results/prim_problem2b.tar.gz')
