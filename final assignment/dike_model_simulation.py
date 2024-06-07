@@ -11,7 +11,7 @@ from problem_formulation import get_model_for_problem_formulation
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    dike_model, planning_steps = get_model_for_problem_formulation(2)
+    dike_model, planning_steps = get_model_for_problem_formulation(3)
 
     # # Build a user-defined scenario and policy:
     # reference_values = {
@@ -36,17 +36,17 @@ if __name__ == "__main__":
     #
     # ref_scenario = Scenario("reference", **scen1)
     #
-    # # no dike increase, no warning, none of the rfr
-    # zero_policy = {"DaysToThreat": 0}
-    # zero_policy.update({f"DikeIncrease {n}": 0 for n in planning_steps})
-    # zero_policy.update({f"RfR {n}": 0 for n in planning_steps})
-    # pol0 = {}
-    #
-    # for key in dike_model.levers:
-    #     s1, s2 = key.name.split("_")
-    #     pol0.update({key.name: zero_policy[s2]})
-    #
-    # policy0 = Policy("Policy 0", **pol0)
+    # no dike increase, no warning, none of the rfr
+    zero_policy = {"DaysToThreat": 0}
+    zero_policy.update({f"DikeIncrease {n}": 0 for n in planning_steps})
+    zero_policy.update({f"RfR {n}": 0 for n in planning_steps})
+    pol0 = {}
+
+    for key in dike_model.levers:
+        s1, s2 = key.name.split("_")
+        pol0.update({key.name: zero_policy[s2]})
+
+    policy0 = Policy("Policy 0", **pol0)
 
     # Call random scenarios or policies:
     #    n_scenarios = 5
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
 # multiprocessing
     with MultiprocessingEvaluator(dike_model) as evaluator:
-        experiments, outcomes = evaluator.perform_experiments(scenarios=5000, policies=1)
+        experiments, outcomes = evaluator.perform_experiments(scenarios=5000, policies=policy0)
 
     # save results
-    save_results((experiments, outcomes), './results/prim_problem2b.tar.gz')
+    save_results((experiments, outcomes), './results/prim_problem3c.tar.gz')
