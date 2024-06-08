@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7abf82ce-651c-49ff-aeed-db13f1bbc2e9" name="Changes" comment="" />
+    <list default="true" id="7abf82ce-651c-49ff-aeed-db13f1bbc2e9" name="Changes" comment="requirements.txt push">
+      <change beforePath="$PROJECT_DIR$/.idea/EPA141A-labs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EPA141A-labs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 1 - tutorial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 1 - tutorial.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 2 - lakemodel.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 2 - lakemodel.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 3 - multimodel_assignment.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 3 - multimodel_assignment.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/lakemodel_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/lakemodel_function.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final assignment/dike_model_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/final assignment/dike_model_simulation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pip.py" beforeDir="false" afterPath="$PROJECT_DIR$/pip.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ndaswani1&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b533b5e5-3ead-4aa8-ae19-6531f1fe2eee" />
+        <option name="url" value="https://github.com/ndaswani1/EPA141A-labs.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2fSPTtQqcdpgqMEhUvJRUOQWWF1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -20,15 +58,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.dike_model_simulation.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/final assignment" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -44,8 +92,50 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713791517647</updated>
-      <workItem from="1713791521460" duration="14000" />
+      <workItem from="1713791521460" duration="4765000" />
+      <workItem from="1714050584790" duration="4953000" />
+      <workItem from="1714399368595" duration="8169000" />
+      <workItem from="1714493048321" duration="4329000" />
+      <workItem from="1714556175657" duration="6457000" />
+      <workItem from="1714569072441" duration="2553000" />
     </task>
+    <task id="LOCAL-00001" summary="requirements push">
+      <option name="closed" value="true" />
+      <created>1713794747821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713794747821</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Assignments files">
+      <option name="closed" value="true" />
+      <created>1713795947301</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713795947301</updated>
+    </task>
+    <task id="LOCAL-00003" summary="requirements.txt push">
+      <option name="closed" value="true" />
+      <created>1714054359382</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714054359382</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="requirements push" />
+    <MESSAGE value="Assignments files" />
+    <MESSAGE value="requirements.txt push" />
+    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt push" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EPA141A_labs$dike_model_simulation.coverage" NAME="dike_model_simulation Coverage Results" MODIFIED="1714052926127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final assignment" />
   </component>
 </project>
