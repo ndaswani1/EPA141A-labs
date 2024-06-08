@@ -4,7 +4,7 @@ from ema_workbench import (
     ScalarOutcome,
     IntegerParameter,
     optimize,
-    Scenario,
+    Scenario, save_results,
 )
 from ema_workbench.em_framework.optimization import EpsilonProgress
 from ema_workbench.util import ema_logging
@@ -17,7 +17,7 @@ import seaborn as sns
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    model, steps = get_model_for_problem_formulation(2)
+    model, steps = get_model_for_problem_formulation(3)
 
     reference_values = {
         "Bmax": 175,
@@ -42,23 +42,19 @@ if __name__ == "__main__":
     ref_scenario = Scenario("reference", **scen1)
 
     convergence_metrics = [EpsilonProgress()]
-
-    espilon = [1e3] * len(model.outcomes)
+    #determine epsilon
+    epsilon = [1e3] * len(model.outcomes)
 
     nfe = 200  # proof of principle only, way to low for actual use
-
+    #multiprocessing
     with MultiprocessingEvaluator(model) as evaluator:
         results, convergence = evaluator.optimize(
             nfe=nfe,
             searchover="levers",
-            epsilons=espilon,
+            epsilons=epsilon,
             convergence=convergence_metrics,
             reference=ref_scenario,
         )
+    #save results
+    save_results((results, convergence), 'results/dikeoptimization_problem3.tar.gz')
 
-    fig, (ax1, ax2) = plt.subplots(ncols=2, sharex=True)
-    fig, ax1 = plt.subplots(ncols=1)
-    ax1.plot(convergence.epsilon_progress)
-    ax1.set_xlabel("nr. of generations")
-    ax1.set_ylabel(r"$\epsilon$ progress")
-    sns.despine()
