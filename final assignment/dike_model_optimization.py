@@ -56,5 +56,5 @@ if __name__ == "__main__":
             reference=ref_scenario,
         )
     #save results
-    save_results((results, convergence), 'results/dikeoptimization_problem3.tar.gz')
+    save_results((results, convergence), 'results/dikeoptimization_problem3_test.tar.gz')
 
