@@ -11,31 +11,30 @@ from problem_formulation import get_model_for_problem_formulation
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    dike_model, planning_steps = get_model_for_problem_formulation(5)
+    dike_model, planning_steps = get_model_for_problem_formulation(1)
 
-    # # Build a user-defined scenario and policy:
-    # reference_values = {
-    #     "Bmax": 175,
-    #     "Brate": 1.5,
-    #     "pfail": 0.5,
-    #     "ID flood wave shape": 4,
-    #     "planning steps": 2,
-    # }
-    # reference_values.update({f"discount rate {n}": 3.5 for n in planning_steps})
-    #
-    # scen1 = {}
-    #
-    # for key in dike_model.uncertainties:
-    #     name_split = key.name.split("_")
-    #
-    #     if len(name_split) == 1:
-    #         scen1.update({key.name: reference_values[key.name]})
-    #
-    #     else:
-    #         scen1.update({key.name: reference_values[name_split[1]]})
-    #
-    # ref_scenario = Scenario("reference", **scen1)
-    #
+    # Build a user-defined scenario and policy:
+    reference_values = {
+        "Bmax": 175,
+        "Brate": 1.5,
+        "pfail": 0.5,
+        "ID flood wave shape": 4,
+        "planning steps": 2,
+    }
+    reference_values.update({f"discount rate {n}": 3.5 for n in planning_steps})
+    scen1 = {}
+
+    for key in dike_model.uncertainties:
+        name_split = key.name.split("_")
+
+        if len(name_split) == 1:
+            scen1.update({key.name: reference_values[key.name]})
+
+        else:
+            scen1.update({key.name: reference_values[name_split[1]]})
+
+    ref_scenario = Scenario("reference", **scen1)
+
     # no dike increase, no warning, none of the rfr
     zero_policy = {"DaysToThreat": 0}
     zero_policy.update({f"DikeIncrease {n}": 0 for n in planning_steps})
@@ -54,18 +53,18 @@ if __name__ == "__main__":
     #    n_policies = 10
 
     # single run
-    #    start = time.time()
-    #    dike_model.run_model(ref_scenario, policy0)
-    #    end = time.time()
-    #    print(end - start)
-    #    results = dike_model.outcomes_output
+    start = time.time()
+    dike_model.run_model(ref_scenario, policy0)
+    end = time.time()
+    print(end - start)
+    results = dike_model.outcomes_output
 
     # series run
     # experiments, outcomes = perform_experiments(dike_model, ref_scenario, 5)
 
 # multiprocessing
     with MultiprocessingEvaluator(dike_model) as evaluator:
-        experiments, outcomes = evaluator.perform_experiments(scenarios=5000, policies=policy0)
+        experiments, outcomes = evaluator.perform_experiments(scenarios=100, policies=5)
 
     # save results
-    save_results((experiments, outcomes), 'results/dikeanalysis_problem5.tar.gz')
+    save_results((experiments, outcomes), './results/openexplor_problem1.tar.gz')

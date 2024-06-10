@@ -68,3 +68,4 @@ def lake_problem(
     inertia = np.sum(np.abs(np.diff(decisions)) > 0.02) / float(nvars - 1)
 
     return max_P, utility, inertia, reliability
+
