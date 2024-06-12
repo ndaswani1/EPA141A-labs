@@ -6,6 +6,7 @@ from ema_workbench import (
     optimize,
     Scenario, save_results,
 )
+from ema_workbench.em_framework import ArchiveLogger
 from ema_workbench.em_framework.optimization import EpsilonProgress
 from ema_workbench.util import ema_logging
 
@@ -41,11 +42,21 @@ if __name__ == "__main__":
 
     ref_scenario = Scenario("reference", **scen1)
 
-    convergence_metrics = [EpsilonProgress()]
+    # convergence_metrics = [EpsilonProgress()]
     #determine epsilon
     epsilon = [1e3] * len(model.outcomes)
 
-    nfe = 200  # proof of principle only, way to low for actual use
+    convergence_metrics = [ArchiveLogger(
+        "./archives",
+        [l.name for l in model.levers],
+        [o.name for o in model.outcomes],
+        base_filename="multiobj_problem3_results.tar.gz",
+    ),
+        EpsilonProgress(),
+    ]
+
+    nfe = 2  # proof of principle only, way to low for actual use
+
     #multiprocessing
     with MultiprocessingEvaluator(model) as evaluator:
         results, convergence = evaluator.optimize(
@@ -55,6 +66,13 @@ if __name__ == "__main__":
             convergence=convergence_metrics,
             reference=ref_scenario,
         )
-    #save results
-    save_results((results, convergence), 'results/dikeoptimization_problem3_test.tar.gz')
+
+    fig, (ax1, ax2) = plt.subplots(ncols=2, sharex=True)
+    fig, ax1 = plt.subplots(ncols=1)
+    ax1.plot(convergence.epsilon_progress)
+    ax1.set_xlabel("nr. of generations")
+    ax1.set_ylabel(r"$\epsilon$ progress")
+    sns.despine()
+    plt.savefig('./archives/multiobj_problem3_convergence.png')
+    plt.show()
 
