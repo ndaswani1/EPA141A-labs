@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7abf82ce-651c-49ff-aeed-db13f1bbc2e9" name="Changes" comment="requirements.txt push">
-      <change beforePath="$PROJECT_DIR$/.idea/EPA141A-labs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EPA141A-labs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 1 - tutorial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 1 - tutorial.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 2 - lakemodel.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 2 - lakemodel.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 3 - multimodel_assignment.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/assignment 3 - multimodel_assignment.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/lakemodel_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/Week 1-2 - general intro to exploratory modelling/lakemodel_function.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final assignment/dike_model_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/final assignment/dike_model_simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pip.py" beforeDir="false" afterPath="$PROJECT_DIR$/pip.py" afterDir="false" />
-    </list>
+    <list default="true" id="7abf82ce-651c-49ff-aeed-db13f1bbc2e9" name="Changes" comment="nieuwe files aangemaakt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +42,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2fSPTtQqcdpgqMEhUvJRUOQWWF1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,6 +55,7 @@
     &quot;Python.dike_model_simulation.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -98,6 +91,10 @@
       <workItem from="1714493048321" duration="4329000" />
       <workItem from="1714556175657" duration="6457000" />
       <workItem from="1714569072441" duration="2553000" />
+      <workItem from="1718002533251" duration="23090000" />
+      <workItem from="1718037753697" duration="674000" />
+      <workItem from="1718185313773" duration="2522000" />
+      <workItem from="1718193748324" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="requirements push">
       <option name="closed" value="true" />
@@ -123,7 +120,79 @@
       <option name="project" value="LOCAL" />
       <updated>1714054359382</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dike model multiobj optimization opzet gemaakt">
+      <option name="closed" value="true" />
+      <created>1717946665070</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717946665070</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update prim and open exploration">
+      <option name="closed" value="true" />
+      <created>1718002742280</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718002742286</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new figure for multi objective">
+      <option name="closed" value="true" />
+      <created>1718002769334</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718002769334</updated>
+    </task>
+    <task id="LOCAL-00007" summary="multi objective signal to noise">
+      <option name="closed" value="true" />
+      <created>1718023256533</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718023256533</updated>
+    </task>
+    <task id="LOCAL-00008" summary="remove file">
+      <option name="closed" value="true" />
+      <created>1718023304743</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718023304743</updated>
+    </task>
+    <task id="LOCAL-00009" summary="extension multi-objective">
+      <option name="closed" value="true" />
+      <created>1718025887652</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718025887652</updated>
+    </task>
+    <task id="LOCAL-00010" summary="extension multi-objective2">
+      <option name="closed" value="true" />
+      <created>1718037800764</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718037800764</updated>
+    </task>
+    <task id="LOCAL-00011" summary="nieuwe files aangemaakt">
+      <option name="closed" value="true" />
+      <created>1718186726538</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718186726538</updated>
+    </task>
+    <task id="LOCAL-00012" summary="nieuwe files aangemaakt">
+      <option name="closed" value="true" />
+      <created>1718193858235</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718193858235</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,9 +202,19 @@
     <MESSAGE value="requirements push" />
     <MESSAGE value="Assignments files" />
     <MESSAGE value="requirements.txt push" />
-    <option name="LAST_COMMIT_MESSAGE" value="requirements.txt push" />
+    <MESSAGE value="dike model multiobj optimization opzet gemaakt" />
+    <MESSAGE value="update prim and open exploration" />
+    <MESSAGE value="new figure for multi objective" />
+    <MESSAGE value="multi objective signal to noise" />
+    <MESSAGE value="remove file" />
+    <MESSAGE value="extension multi-objective" />
+    <MESSAGE value="extension multi-objective2" />
+    <MESSAGE value="nieuwe files aangemaakt" />
+    <option name="LAST_COMMIT_MESSAGE" value="nieuwe files aangemaakt" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/EPA141A$dike_model_simulation.coverage" NAME="dike_model_simulation Coverage Results" MODIFIED="1717665848073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final assignment" />
+    <SUITE FILE_PATH="coverage/EPA141A$dike_model_optimization.coverage" NAME="dike_model_optimization Coverage Results" MODIFIED="1717879995984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final assignment" />
     <SUITE FILE_PATH="coverage/EPA141A_labs$dike_model_simulation.coverage" NAME="dike_model_simulation Coverage Results" MODIFIED="1714052926127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final assignment" />
   </component>
 </project>
