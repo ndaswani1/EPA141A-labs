@@ -9,7 +9,8 @@ from ema_workbench import (
     save_results,
     load_results,
     MPIEvaluator,
-    ema_logging
+    ema_logging,
+    Constraint
 )
 from ema_workbench.em_framework.optimization import (ArchiveLogger, EpsilonProgress)
 
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     # define the model and steps
     model, steps = get_model_for_problem_formulation(3)
     # retrieve scenarios and outcomes for scenario selection
-    scenarios, outcomes = load_results("./results/scenario_selection.tar.gz")
+    scenarios, outcomes = load_results("./scenario_selection.tar.gz")
     # define which scenarios are of interest
     experiments_of_interest = scenarios['scenario']
     # select only outcomes for these experiments we are interested in
@@ -81,10 +82,21 @@ if __name__ == "__main__":
     def optimize(model, scenario, nfe, epsilons, seed_nr):
         results = []
         convergences = []
+
+        constraints = [
+            Constraint("No casualties A1", outcome_names="A.1_Expected Number of Deaths",
+                       function=lambda x: (max(0, 0 + x))),
+            Constraint("No casualties A2", outcome_names="A.2_Expected Number of Deaths",
+                       function=lambda x: (max(0, 0 + x))),
+            Constraint("No casualties A3", outcome_names="A.3_Expected Number of Deaths",
+                       function=lambda x: (max(0, 0 + x))),
+            Constraint("At least one RfR", outcome_names="RfR Total Costs", function=lambda x: (max(0, 1 - x))),
+        ]
+
         with MultiprocessingEvaluator(model) as evaluator:
             for i in range(seed_nr):
                 convergence_metrics = [ArchiveLogger(
-                    "./results",
+                    "./results/opt150/",
                     [l.name for l in model.levers],
                     [o.name for o in model.outcomes],
                     base_filename=f"optimization_3_{scenario.name}_seed_{i}.tar.gz"),
@@ -94,7 +106,8 @@ if __name__ == "__main__":
                 result, convergence = evaluator.optimize(nfe=nfe, searchover='levers',
                                                          convergence=convergence_metrics,
                                                          epsilons=epsilons,
-                                                         reference=scenario)
+                                                         reference=scenario,
+                                                         constraints=constraints)
                 results.append(result)
                 convergences.append(convergence)
 
@@ -105,12 +118,12 @@ if __name__ == "__main__":
     legend_items = []
     colors = sns.color_palette()
     for scenario in scenarios:
-        if scenario.name == 'reference':
+        if scenario.name == '257':
             color = colors[0]
             legend_items.append((mpl.lines.Line2D([0,0], [1,1], c=color), scenario.name))
             # epsilons = [1e5, ] * len(model.outcomes)
             epsilons = [1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 1e4]
-            optimizer = optimize(model, scenario, 100000, epsilons, 3)
+            optimizer = optimize(model, scenario, 2, epsilons, 2)
             optimizations.append(optimizer)
             convergences = optimizer[1]
             for convergence in convergences:
@@ -120,6 +133,6 @@ if __name__ == "__main__":
     fig.legend(artists, labels, bbox_to_anchor=(1.15, 0.9))
     ax.set_xlabel("Number of functional evaluations")
     ax.set_ylabel(r"$\epsilon$ progress")
-    plt.title(f"Convergence of epsilon for reference scenario")
-    plt.savefig(f'./results/optimization_3_{scenario.name}_convergence.png', bbox_inches='tight')
+    plt.title(f"Convergence of epsilon for scenario 257")
+    plt.savefig(f'./results/opt150/optimization_3_257_convergence.png', bbox_inches='tight')
     plt.show()
