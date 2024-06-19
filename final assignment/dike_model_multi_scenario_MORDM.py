@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # define the model and steps
     model, steps = get_model_for_problem_formulation(3)
     # retrieve scenarios and outcomes for scenario selection
-    scenarios, outcomes = load_results("./results/scenarios_for_multiobj.tar.gz")
+    scenarios, outcomes = load_results("./results/scenario_selection.tar.gz")
     # define which scenarios are of interest
     experiments_of_interest = scenarios['scenario']
     # select only outcomes for these experiments we are interested in
