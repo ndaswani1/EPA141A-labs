@@ -96,7 +96,7 @@ if __name__ == "__main__":
         with MultiprocessingEvaluator(model) as evaluator:
             for i in range(seed_nr):
                 convergence_metrics = [ArchiveLogger(
-                    "./results/opt150/",
+                    "./results/opt200/",
                     [l.name for l in model.levers],
                     [o.name for o in model.outcomes],
                     base_filename=f"optimization_3_{scenario.name}_seed_{i}.tar.gz"),
@@ -121,18 +121,22 @@ if __name__ == "__main__":
         if scenario.name == '257':
             color = colors[0]
             legend_items.append((mpl.lines.Line2D([0,0], [1,1], c=color), scenario.name))
-            # epsilons = [1e5, ] * len(model.outcomes)
             epsilons = [1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 1e4]
-            optimizer = optimize(model, scenario, 2, epsilons, 2)
+            optimizer = optimize(model, scenario, 200000, epsilons, 3)
             optimizations.append(optimizer)
             convergences = optimizer[1]
+            index = 0
             for convergence in convergences:
                 ax.plot(convergence.nfe, convergence.epsilon_progress, c=color)
+                convergence_df = pd.DataFrame(convergence)
+                convergence_df.to_csv(f'results/opt200/optimization_3_{scenario.name}_seed_{index}_convergence.csv', index=False)
+                index += 1
 
     artists, labels = zip(*legend_items)
     fig.legend(artists, labels, bbox_to_anchor=(1.15, 0.9))
     ax.set_xlabel("Number of functional evaluations")
     ax.set_ylabel(r"$\epsilon$ progress")
     plt.title(f"Convergence of epsilon for scenario 257")
-    plt.savefig(f'./results/opt150/optimization_3_257_convergence.png', bbox_inches='tight')
+    plt.title(f"Convergence of epsilon")
+    plt.savefig(f'./results/opt200/optimization_3_257_convergence.png', bbox_inches='tight')
     plt.show()
