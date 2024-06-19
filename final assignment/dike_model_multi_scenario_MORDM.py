@@ -22,6 +22,7 @@ import random
 from scenario_selection import find_maxdiverse_scenarios
 import numpy as np
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import preprocessing
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     # define the model and steps
     model, steps = get_model_for_problem_formulation(3)
     # retrieve scenarios and outcomes for scenario selection
-    scenarios, outcomes = load_results("./scenarios_for_multiobj.tar.gz")
+    scenarios, outcomes = load_results("./results/scenarios_for_multiobj.tar.gz")
     # define which scenarios are of interest
     experiments_of_interest = scenarios['scenario']
     # select only outcomes for these experiments we are interested in
@@ -80,10 +81,10 @@ if __name__ == "__main__":
     def optimize(model, scenario, nfe, epsilons, seed_nr):
         results = []
         convergences = []
-        with MPIEvaluator(model) as evaluator:
+        with MultiprocessingEvaluator(model) as evaluator:
             for i in range(seed_nr):
                 convergence_metrics = [ArchiveLogger(
-                    "./",
+                    "./results",
                     [l.name for l in model.levers],
                     [o.name for o in model.outcomes],
                     base_filename=f"optimization_3_{scenario.name}_seed_{i}.tar.gz"),
@@ -100,6 +101,25 @@ if __name__ == "__main__":
         return results, convergences
 
     optimizations = []
+    fig, ax = plt.subplots(ncols=1)
+    legend_items = []
+    colors = sns.color_palette()
     for scenario in scenarios:
-        epsilons = [1e3, ] * len(model.outcomes)
-        optimizations.append(optimize(model, scenario, 100000, epsilons, 3))
+        if scenario.name == 'reference':
+            color = colors[0]
+            legend_items.append((mpl.lines.Line2D([0,0], [1,1], c=color), scenario.name))
+            # epsilons = [1e5, ] * len(model.outcomes)
+            epsilons = [1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 0.01, 1e4, 1e4]
+            optimizer = optimize(model, scenario, 100000, epsilons, 3)
+            optimizations.append(optimizer)
+            convergences = optimizer[1]
+            for convergence in convergences:
+                ax.plot(convergence.nfe, convergence.epsilon_progress, c=color)
+
+    artists, labels = zip(*legend_items)
+    fig.legend(artists, labels, bbox_to_anchor=(1.15, 0.9))
+    ax.set_xlabel("Number of functional evaluations")
+    ax.set_ylabel(r"$\epsilon$ progress")
+    plt.title(f"Convergence of epsilon for reference scenario")
+    plt.savefig(f'./results/optimization_3_{scenario.name}_convergence.png', bbox_inches='tight')
+    plt.show()
