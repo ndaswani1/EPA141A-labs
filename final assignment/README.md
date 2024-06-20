@@ -5,12 +5,11 @@ Prepared for EPA1361 by Group 15.
 
 | Team Member            | Student Number |
 | ---------------------- | -------------- |
-| Bouzelou, Fotini Maria | 5865727        |
-| Burkot, Agnieszka      | 5808839        |
-| Camarena Barba, Angela | 5715008        |
-| de Bruijn, Christopher | 4678850        |
-| Romijn, Michiel        | 4755138        |
-| Sher, Gabriel          | 5773199        |
+| Nelene Augustinus      |   5404916      |
+| Floor Broekman         |   5333806      |
+| Nikhil Daswani         |   5049954      |
+| Milan Moleman          |   5415764      |
+
 
 ## Table of Contents
 - [IJssel River Room for the River Project](#ijssel-river-room-for-the-river-project)
@@ -40,10 +39,9 @@ An annotated `tree` of the current directory is provided. Below, we explain the 
 
 ```
 # Directories
-├── archives/
 ├── data/
-├── img/
-├── output/
+├── images/
+├── results/
 # Base Model Files -- Untouched
 ├── __init__.py
 ├── dike_model_function.py
@@ -51,11 +49,13 @@ An annotated `tree` of the current directory is provided. Below, we explain the 
 ├── funs_economy.py
 ├── funs_generate_network.py
 ├── funs_hydrostat.py
-# Provided Workbench Files -- Edited
+# Provided Workbench Files -- Unedited
 ├── problem_formulation.py
 # Experimentation & Analysis Files
 # (in order of first use in modeling pipeline)
-├── run_experiments.py
+├── dike_model_visual_analysis.ipynb
+
+
 ├── Global Sensitivity Analysis.ipynb
 ├── Feature Scoring & Dimensional Stacking.ipynb
 ├── basic_statistical_analysis.ipynb
