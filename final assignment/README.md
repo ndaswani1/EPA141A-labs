@@ -51,24 +51,21 @@ An annotated `tree` of the current directory is provided. Below, we explain the 
 ├── funs_hydrostat.py
 # Provided Workbench Files -- Unedited
 ├── problem_formulation.py
+├── dike_model_simulation.py
 # Experimentation & Analysis Files
 # (in order of first use in modeling pipeline)
 ├── dike_model_visual_analysis.ipynb
-
-
-├── Global Sensitivity Analysis.ipynb
-├── Feature Scoring & Dimensional Stacking.ipynb
-├── basic_statistical_analysis.ipynb
-├── Scenario_Discovery.ipynb
-├── open_exploration__scenario_diversity_scoring.py
-├── optimization__seeded_fixed_scenario.py
-├── Directed Search.ipynb
-├── Policy Robustness.ipynb
-├── Policy Vulnerability.ipynb
-# Library / Function Definition Files
-├── set_diversity.py
+├── dike_model_sobol_analysis.ipynb
+├── dike_model_prim_analysis.ipynb
+├── scenario_selection.py
+├── dike_model_scenario_selection.ipynb
+├── dike_model_multi_scenario_MORDM.py
+├── dike_model_multi_scenario_MORDM_reevaluation.py
+├── dike_model_multi_scenario_MORDM.ipynb
 # Other
+├── requirements.txt
 └── README.md
+
 ```
 
 ### Directories
