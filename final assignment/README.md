@@ -141,29 +141,23 @@ As mentioned, our modeling workflow is quite linear, with opportunities to feed 
 
 **Required Input:** A valid experimental (open exploration) results file, likely the `openexplor_problem1.tar.gz`, `openexplor_problem2.tar.gz` or `openexplor_problem3.tar.gz` file.
 
-##### Step 3b: Scenario Selection
+##### Part 2b: Scenario Selection
 
-**File:** [open_exploration__scenario_diversity_scoring.py](open_exploration__scenario_diversity_scoring.py)
+**File:** [dike_model_scenario_selection.ipynb](dike_model_scenario_selection.ipynb)
 
-**Purpose & Output:** 
-* Samples two million combinations of the filtered (post-PRIM) scenarios to find a set of four scenarios that maximizes diversity in terms of the some model outcomes. All sampled combinations include the "worst case" scenario studied, which is the scenario that generated the greatest damages in Dike Ring 4 in the "do nothing" case.
-  * Diversity is assessed for the following outcomes: Dike Ring 4 damages, Dike Rings 1 & 2 damages (together), and Total Damages. We wanted to find scenarios that explicitly cause disproportionate damage to each of the rural (farming) regions, as well as cases that don't cause much damage at all across the board.
-* Writes the selected scenario set to a file ([selected_scenarios.csv](output/selected_scenarios.csv)).
+**Purpose & Output:** Samples 50.000 combinations of the filtered (post-PRIM) scenarios to identify a set of four scenarios that maximize diversity in terms of certain model outcomes.
+* All sampled combinations include the "worst-case" scenario studied, which is the scenario that resulted in the greatest amount of deaths in Dike Rings 1 through 3 under the base case scenario, where nothing is done and no policies or mitigation measures are implemented.
+* Diversity is evaluated based on the following outcomes: deaths to Dike Ring 1 through 3, combined damages to Dike Rings 1 & 2, and total damages. The goal is to find scenarios that cause disproportionately high amount of deaths to each of the regions.
+* Outputs the selected set of scenarios to the file ([scenario_selection.tar.gz](results/scenario_selection.tar.gz)).
 
-**Instructions:** 
+**Instructions:** Open as a Jupyter Notebook and read results, or start a kernel and run from top to bottom.
 
-```
-python open_exploraion__scenario_diversity_scoring.py
-```
+**Required Input:** A combined and PRIM-filtered experimental results table, such as `prim_problem3.tar.gz`.
 
-(This is run as a Python script instead of a Jupyter notebook to enable maximal performance when creating and scoring the scenario sets. When the number of input scenarios was larger on previous iterations of our modelling performance (too lenient a PRIM box), parallelizing this process in a Notebook was not working, so we moved to using Python's standard multiprocessing in a file).
-
-**Required Input:** A combined and PRIM-filtered experimental results table, as produced in the previous file in this step.
-
-### Step 4: Multi-Scenario, Multi-Objective Robust Policy Search
+### Part 3: Multi-Scenario, Multi-Objective Robust Decision-Making (Multi-scenario MORDM)
 
 
-##### Step 4a: Generative Algorithm Policy Search
+##### Step 3a: Generative Algorithm Policy Search
 
 **File:** [optimization__seeded_fixed_scenario.py](optimization__seeded_fixed_scenario.py)
 
@@ -181,7 +175,7 @@ python open_exploraion__scenario_diversity_scoring.py
 python optimization__seeded_fixed_scenario.py`
 ```
 
-**Required Input:** A table of scenarios in `selected_scenarios.csv`, whether hand-picked or selected by Step 2b.
+**Required Input:** A table of scenarios in `scenario_selection.tar.gz`, which was generated in Step 2b.
 
 
 ##### Step 4b: Convergence Testing & Initial Policy Filtering
