@@ -159,20 +159,18 @@ As mentioned, our modeling workflow is quite linear, with opportunities to feed 
 
 ##### Step 3a: Generative Algorithm Policy Search
 
-**File:** [optimization__seeded_fixed_scenario.py](optimization__seeded_fixed_scenario.py)
+**File:** [dike_model_multi_scenario_MORDM.py](dike_model_multi_scenario_MORDM.py) & [dike_model_multi_scenario_MORDM.ipynb](dike_model_multi_scenario_MORDM.ipynb)
 
 **Purpose & Output:** 
-* For each scenario that was selected in Step 2b, runs a generative algorithm that discovers and assesses policies that optimize for the outcomes in our primary problem formulation. Repeats this process for 5 different seeds per scenario. 
-* Saves output files `POLICY_SEARCH__results__*.csv`, `POLICY_SEARCH__convergence__*.csv` and archive files `POLICY_SEARCH__archive__*.csv`, in `output/` and `archives/`, respectively.
-  * These files contain different parts of the results of this process:
-    * The `results` files contain the policies found by the algorith alongside the model outcomes calculated for the scenario under which they were discovered.
-    * The `convergence` files include a key indicator (`epsilon_progress`) of whether the generative algorithm converged to a final policy set.
-    * The `archive` files include a history of how the algorithm generated and found new policies over time.
+* For each scenario selected in Step 2b, execute a generative algorithm three times with different seeds to discover and evaluate policies optimizing the chosen problem formulation's outcomes.
+* Save output files named `optimization_3_{scenario.name}_seed_{i}.tar.gz` and `optimization_3_{scenario.name}_convergence.png` in directories `results/` and `images/`, respectively. These files contain:
+  * Results: Policies found by the algorithm alongside model outcomes computed for the corresponding scenario.
+  * Images: Plots indicating `epsilon_progress`, showing whether the generative algorithm converged to a final set of policies.
 
 **Instructions:** 
 
 ```
-python optimization__seeded_fixed_scenario.py`
+python dike_model_multi_scenario_MORDM.py`
 ```
 
 **Required Input:** A table of scenarios in `scenario_selection.tar.gz`, which was generated in Step 2b.
