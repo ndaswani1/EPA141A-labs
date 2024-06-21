@@ -189,6 +189,13 @@ python dike_model_multi_scenario_MORDM.py`
 * Lastly an overview of the policies is shown, and a table is created which shows tradeoffs for each relevant policy and the outcomes of interest. 
 
 **Instructions:** 
+**IMPORTANT NOTE:** For these files to work, it is important to modify the source code of EMA_workbench. This is done in the directory `em_framework/`, within the `optimization.py`. After `line 889` the following code should be added: 
+```
+solutions = []
+for index, row in archive.iterrows():
+    try:
+        decision_variables = row[attr] for attr in problem.parameter_names
+```
 Open as a Jupyter Notebook and run from top to bottom. **Calculating the diversity of the permutations takes a while, so can be commented out (also comment out the following cell that check the diversity).**
 
 **Required Input:** A set of results from the optimization process, above, and the table of scenarios in `scenario_selection.tar.gz` for which that optimization process was run.
