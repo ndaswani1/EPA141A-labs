@@ -73,6 +73,5 @@ if __name__ == "__main__":
     ax1.set_xlabel("nr. of generations")
     ax1.set_ylabel(r"$\epsilon$ progress")
     sns.despine()
-    plt.savefig('./archives/multiobj_problem3_convergence.png')
-    plt.show()
-
+    plt.savefig('./multiobj_problem3_convergence.png')
+    # plt.show()
