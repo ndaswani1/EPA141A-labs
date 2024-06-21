@@ -21,16 +21,13 @@ Prepared for EPA141A by Group 10.
     - [Experimentation \& Analysis Files (\& Usage)](#experimentation--analysis-files--usage)
     - [Other Files](#other-files)
   - [Modeling Workflow](#modeling-workflow)
-    - [Step 1: Run Initial Experiments with the "Do Nothing" Policy](#step-1-run-initial-experiments-with-the-do-nothing-policy)
-    - [Step 2: Open Exploration: Uncertainty Analysis](#step-2-open-exploration-uncertainty-analysis)
-    - [Step 3: Open Exploration: Scenario Discovery \& Selection](#step-3-open-exploration-scenario-discovery--selection)
-        - [Step 3a: Scenario Discovery](#step-3a-scenario-discovery)
-        - [Step 3b: Scenario Selection](#step-3b-scenario-selection)
-    - [Step 4: Multi-Scenario, Multi-Objective Robust Policy Search](#step-4-multi-scenario-multi-objective-robust-policy-search)
-        - [Step 4a: Generative Algorithm Policy Search](#step-4a-generative-algorithm-policy-search)
-        - [Step 4b: Convergence Testing \& Initial Policy Filtering](#step-4b-convergence-testing--initial-policy-filtering)
-        - [Step 4c: Robustness Testing](#step-4c-robustness-testing)
-        - [Step 4d: Vulnerability Testing](#step-4d-vulnerability-testing)
+    - [Part 1: Uncertainty Analysis (Open Exploration)](#part-1-uncertainty-analysis-open-exploration)
+    - [Part 2: Scenario Discovery \& Selection (Open Exploration)](#part-2-scenario-discovery--selection-open-exploration)
+        - [Part 2a: Visual Analysis \& Scenario Discovery (Open Exploration)](#part-2a-visual-analysis--scenario-discovery-open-exploration)
+        - [Part 2b: Scenario Selection](#part-2b-scenario-selection)
+    - [Part 3: Multi-Scenario, Multi-Objective Robust Decision-Making (Multi-scenario MORDM)](#part-3-multi-scenario-multi-objective-robust-decision-making-multi-scenario-mordm)
+        - [Part 3a: Generative Algorithm Policy Search](#part-3a-generative-algorithm-policy-search)
+        - [Part 3b: Convergence Testing, Initial Policy Filtering, Robustness of Policies, Tradeoff Analysis](#part-3b-convergence-testing-initial-policy-filtering-robustness-of-policies-tradeoff-analysis)
 
 
 ## File Structure
@@ -125,10 +122,10 @@ As mentioned, our modeling workflow is quite linear, with opportunities to feed 
 
 **Required Input:** A valid experimental results file, likely the `sobol_results_problem2.tar.gz` or file 
 
-### Step 2: Scenario Discovery & Selection (Open Exploration)
+### Part 2: Scenario Discovery & Selection (Open Exploration)
 
 
-##### Step 2a: Visual Analysis & Scenario Discovery (Open Exploration)
+##### Part 2a: Visual Analysis & Scenario Discovery (Open Exploration)
 
 **File:** **File:** [dike_model_prim_analysis.ipynb](dike_model_prim_analysis.ipynb) & [dike_model_visual_analysis.ipynb](dike_model_visual_analysis.ipynb)
 
@@ -157,7 +154,7 @@ As mentioned, our modeling workflow is quite linear, with opportunities to feed 
 ### Part 3: Multi-Scenario, Multi-Objective Robust Decision-Making (Multi-scenario MORDM)
 
 
-##### Step 3a: Generative Algorithm Policy Search
+##### Part 3a: Generative Algorithm Policy Search
 
 **File:** [dike_model_multi_scenario_MORDM.py](dike_model_multi_scenario_MORDM.py)
 
@@ -176,7 +173,7 @@ python dike_model_multi_scenario_MORDM.py`
 **Required Input:** A table of scenarios in `scenario_selection.tar.gz`, which was generated in Step 2b.
 
 
-##### Step 3b: Convergence Testing & Initial Policy Filtering 
+##### Part 3b: Convergence Testing, Initial Policy Filtering, Robustness of Policies, Tradeoff Analysis 
 
 **File:** [dike_model_multi_scenario_MORDM.ipynb](dike_model_multi_scenario_MORDM.ipynb),  [`dike_model_multi_scenario_MORDM.py`](dike_model_multi_scenario_MORDM.py) & [`dike_model_multi_scenario_MORDM_reevaluation.py`](dike_model_multi_scenario_MORDM_reevaluation.py)
 
